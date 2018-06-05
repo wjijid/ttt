@@ -7,6 +7,7 @@
     >
 
     <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/sdv"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/touxiang"
