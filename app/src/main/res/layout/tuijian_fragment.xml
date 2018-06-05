@@ -3,28 +3,44 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     >
-    
-    <RadioGroup
+
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:textSize="30dp"
+                android:textColor="@drawable/item"
+                android:text="热门"/>
+
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:textSize="30dp"
+                android:textColor="@drawable/item"
+                android:layout_marginLeft="10dp"
+                android:text="关注"/>
+
+        </RadioGroup>
+
+
+    <FrameLayout
+        android:id="@+id/fr"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:textSize="30dp"
-            android:text="热门"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:textSize="30dp"
-            android:text="关注"/>
-
-    </RadioGroup>
+        android:layout_height="0dp"
+        android:layout_weight="9"></FrameLayout>
     
 
     
