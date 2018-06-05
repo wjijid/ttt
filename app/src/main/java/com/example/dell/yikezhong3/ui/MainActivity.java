@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 
 import com.example.dell.yikezhong3.R;
+import com.example.dell.yikezhong3.ui.duanzi.DuanziFragment;
 import com.example.dell.yikezhong3.ui.tuijian.TuijianFragment;
 
 
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
                 switch (checkedId){
                     case R.id.btn_01:
                         manager.beginTransaction().replace(R.id.frame,new TuijianFragment()).commit();
+                        break;
+                    case R.id.btn_02:
+                        manager.beginTransaction().replace(R.id.frame,new DuanziFragment()).commit();
                         break;
                 }
             }
