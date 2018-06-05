@@ -9,6 +9,7 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+        //初始化
         Fresco.initialize(this);
     }
 }
