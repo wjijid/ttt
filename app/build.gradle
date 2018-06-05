@@ -35,5 +35,6 @@ dependencies {
     implementation rootProject.ext.dependencies["adapter-rxjava"]
     implementation 'com.facebook.fresco:fresco:0.12.0'
     implementation 'com.android.support:support-v4:27.1.1'
-    implementation 'com.youth.banner:banner:1.4.10'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
 }

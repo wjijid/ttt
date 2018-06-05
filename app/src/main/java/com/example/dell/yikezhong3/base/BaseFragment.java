@@ -48,5 +48,8 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
         return view;
     }
 
+    @Override
+    public void initView(View view) {
 
+    }
 }

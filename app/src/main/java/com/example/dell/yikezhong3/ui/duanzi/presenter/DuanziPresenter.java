@@ -5,6 +5,8 @@ import com.example.dell.yikezhong3.bean.JokesBean;
 import com.example.dell.yikezhong3.net.JokesApi;
 import com.example.dell.yikezhong3.ui.duanzi.contract.DuanziContract;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -14,6 +16,7 @@ public class DuanziPresenter extends BasePresenter<DuanziContract.View> implemen
 
     private JokesApi jokesApi;
 
+    @Inject
     public DuanziPresenter(JokesApi jokesApi) {
         this.jokesApi = jokesApi;
     }
@@ -33,6 +36,7 @@ public class DuanziPresenter extends BasePresenter<DuanziContract.View> implemen
                     @Override
                     public void onNext(JokesBean jokesBean) {
 
+                        mView.getJokeSuccess(jokesBean);
                     }
 
                     @Override
