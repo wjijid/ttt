@@ -27,17 +27,17 @@ public class TuijianFragment extends Fragment {
         fr = view.findViewById(R.id.fr);
         rg = view.findViewById(R.id.rg);
         manager = getActivity().getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.frame,new ReMenFragment()).commit();
+        manager.beginTransaction().replace(R.id.fr,new ReMenFragment()).commit();
 
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
                     case R.id.rb1:
-                        manager.beginTransaction().replace(R.id.frame,new ReMenFragment()).commit();
+                        manager.beginTransaction().replace(R.id.fr,new ReMenFragment()).commit();
                         break;
                     case R.id.rb2:
-                        manager.beginTransaction().replace(R.id.frame,new GuanZhuFragment()).commit();
+                        manager.beginTransaction().replace(R.id.fr,new GuanZhuFragment()).commit();
                         break;
                 }
             }
