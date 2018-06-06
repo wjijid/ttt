@@ -3,6 +3,8 @@ package com.example.dell.yikezhong3.moudle;
 import com.example.dell.yikezhong3.net.Api;
 import com.example.dell.yikezhong3.net.JokesApi;
 import com.example.dell.yikezhong3.net.JokesApiService;
+import com.example.dell.yikezhong3.net.LoginApi;
+import com.example.dell.yikezhong3.net.LoginApiService;
 import com.example.dell.yikezhong3.net.MyInterceptor;
 
 import java.util.concurrent.TimeUnit;
@@ -24,6 +26,7 @@ public class HttpMoudle {
                 .connectTimeout(10, TimeUnit.SECONDS);
     }
 
+    //段子
     @Provides
     JokesApi provideJokesApi(OkHttpClient.Builder builder) {
         builder.addInterceptor(new MyInterceptor());
@@ -35,5 +38,19 @@ public class HttpMoudle {
                 .build();
         JokesApiService jokesApiService = retrofit.create(JokesApiService.class);
         return JokesApi.getJokesApi(jokesApiService);
+    }
+
+    //登录
+    @Provides
+    LoginApi provideLoginApi(OkHttpClient.Builder builder) {
+        builder.addInterceptor(new MyInterceptor());
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        LoginApiService loginApiService = retrofit.create(LoginApiService.class);
+        return LoginApi.getLoginApi(loginApiService);
     }
 }

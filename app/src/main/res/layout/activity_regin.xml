@@ -9,7 +9,7 @@
     tools:context=".ui.login.ItActivity">
 
     <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/it_sdv"
+        android:id="@+id/regin_sdv"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
@@ -32,41 +32,29 @@
         android:layout_marginTop="250dp">
 
         <EditText
-            android:id="@+id/edit_zhanghao"
+            android:id="@+id/edit_mouble"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="账号"/>
+            android:hint="请输入手机号"/>
 
         <EditText
-            android:id="@+id/edit_password"
+            android:id="@+id/edit_pass"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="密码"/>
+            android:hint="输入大小写和数字,密码不能超过8位"/>
     </LinearLayout>
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/regin"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="#FC9244"
         android:layout_below="@+id/lin"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:onClick="login"
-        android:text="登录"
+        android:text="注册"
         android:textColor="#ffffff" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="79dp"
-        android:layout_below="@+id/login"
-        android:layout_marginEnd="55dp"
-        android:textColor="#ffffff"
-        android:textSize="20dp"
-        android:text="忘记密码" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:text="注册账号"
+        android:text="已有账号?"
         android:textColor="#ffffff"
         android:textSize="20dp" />
 

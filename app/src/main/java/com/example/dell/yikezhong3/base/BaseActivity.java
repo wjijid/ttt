@@ -19,7 +19,10 @@ public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends
         setContentView(getContentLayout());
 
         inject();
-        mPresenter.attachView(this);
+        if(mPresenter!=null){
+            mPresenter.attachView(this);
+        }
+
     }
 
     @Override
