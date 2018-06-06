@@ -42,9 +42,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         initView();
+
         setListener();
         View headerView = navigationView.getHeaderView(0);//获取头布局
         menu.setOnClickListener(this);
+        person = headerView.findViewById(R.id.person);
+        person.setOnClickListener(this);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -81,14 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         drawerLayout = findViewById(R.id.draw);
         navigationView =findViewById(R.id.nav);
         menu = findViewById(R.id.images);
-        person = findViewById(R.id.person);
-        person.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     @Override
@@ -101,6 +97,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     drawerLayout.openDrawer(navigationView);
                 }
                 break;
+            case R.id.person:
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 
