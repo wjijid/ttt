@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LoginActivity"
-    android:background="@drawable/raw1499917357">
+    android:background="@drawable/timg"
+    tools:context=".activity.ItActivity">
 
     <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/login_sdv"
+        android:id="@+id/it_sdv"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
@@ -21,33 +21,39 @@
         fresco:roundingBorderWidth="10dp"
         />
 
-    <ImageView
-        android:id="@+id/login_img1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="151dp"
-        android:src="@drawable/weixin1" />
+        android:orientation="vertical"
+        android:background="#88323232"
+        android:layout_marginTop="184dp">
 
-    <ImageView
-        android:id="@+id/login_img2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="85dp"
-        android:src="@drawable/qq1" />
+        <EditText
+            android:id="@+id/edit_zhanghao"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="账号"/>
 
-    <TextView
-        android:id="@+id/login_text"
-        android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/edit_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="密码"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="47dp"
-        android:textSize="20dp"
+        android:layout_marginBottom="137dp"
+        android:background="#FC9244"
         android:textColor="#ffffff"
-        android:text="其他登录方式" />
+        android:text="登录" />
+
+
 
 </RelativeLayout>

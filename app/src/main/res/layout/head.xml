@@ -18,13 +18,14 @@
         android:layout_marginTop="24dp"
         android:textColor="#ffffff"
         android:text="椰汁奶茶"/>
+
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="12dp"
-        android:textColor="#ffffff"
+        android:layout_height="23dp"
         android:layout_marginBottom="18dp"
-        android:text="人生像一场没有尽头的旅行."/>
+        android:layout_marginTop="12dp"
+        android:text="人生像一场没有尽头的旅行."
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
 
 </LinearLayout>
