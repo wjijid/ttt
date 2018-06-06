@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.dell.yikezhong3.R;
+import com.example.dell.yikezhong3.ui.login.ItActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 public class LoginActivity extends AppCompatActivity {
@@ -34,5 +35,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }
