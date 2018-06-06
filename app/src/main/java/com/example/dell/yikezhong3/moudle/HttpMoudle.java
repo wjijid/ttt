@@ -1,5 +1,7 @@
 package com.example.dell.yikezhong3.moudle;
 
+import com.example.dell.yikezhong3.net.AdApi;
+import com.example.dell.yikezhong3.net.AdApiService;
 import com.example.dell.yikezhong3.net.Api;
 import com.example.dell.yikezhong3.net.JokesApi;
 import com.example.dell.yikezhong3.net.JokesApiService;
@@ -26,7 +28,6 @@ public class HttpMoudle {
                 .connectTimeout(10, TimeUnit.SECONDS);
     }
 
-    //段子
     @Provides
     JokesApi provideJokesApi(OkHttpClient.Builder builder) {
         builder.addInterceptor(new MyInterceptor());
@@ -38,6 +39,19 @@ public class HttpMoudle {
                 .build();
         JokesApiService jokesApiService = retrofit.create(JokesApiService.class);
         return JokesApi.getJokesApi(jokesApiService);
+    }
+
+    @Provides
+    AdApi provideAdApi(OkHttpClient.Builder builder) {
+        builder.addInterceptor(new MyInterceptor());
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        AdApiService adApiService = retrofit.create(AdApiService.class);
+        return AdApi.getAdApi(adApiService);
     }
 
     //登录
