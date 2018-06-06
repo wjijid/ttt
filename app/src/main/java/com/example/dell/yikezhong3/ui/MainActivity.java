@@ -16,11 +16,13 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.activity.LoginActivity;
 import com.example.dell.yikezhong3.ui.duanzi.DuanziFragment;
+import com.example.dell.yikezhong3.ui.follow.FollowActivity;
 import com.example.dell.yikezhong3.ui.tuijian.TuijianFragment;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private NavigationView navigationView;
     private SimpleDraweeView menu;
     private ImageView person;
+    private View headerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
 
         setListener();
-        View headerView = navigationView.getHeaderView(0);//获取头布局
+        //获取头布局
+        headerView = navigationView.getHeaderView(0);
         menu.setOnClickListener(this);
         person = headerView.findViewById(R.id.person);
         person.setOnClickListener(this);
@@ -53,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 //item.setChecked(true);
                 Toast.makeText(MainActivity.this,item.getTitle().toString(),Toast.LENGTH_SHORT).show();
+                if (item.getItemId()==R.id.wallet){
+                    Intent intent1 = new Intent(MainActivity.this, FollowActivity.class);
+                    startActivity(intent1);
+                }
                 drawerLayout.closeDrawer(navigationView);
                 return true;
             }
@@ -84,7 +92,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         drawerLayout = findViewById(R.id.draw);
         navigationView =findViewById(R.id.nav);
         menu = findViewById(R.id.images);
-
     }
 
     @Override

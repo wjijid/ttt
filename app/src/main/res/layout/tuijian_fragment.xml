@@ -21,6 +21,7 @@
                 android:button="@null"
                 android:textSize="30dp"
                 android:textColor="@drawable/item"
+                android:checked="true"
                 android:text="热门"/>
 
             <RadioButton

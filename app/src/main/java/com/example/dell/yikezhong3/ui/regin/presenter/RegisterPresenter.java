@@ -38,13 +38,13 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
 
                     @Override
                     public void onNext(RegisterBean registerBean) {
-
+                        mView.registerSuccess(registerBean);
                     }
 
                     @Override
                     public void onError(Throwable e) {
 
-                        mView.registerSuccess();
+
                     }
 
                     @Override

@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dell.yikezhong3.R;
@@ -14,6 +15,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 public class LoginActivity extends AppCompatActivity {
 
     private TextView login_qita;
+    private ImageView login_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this,ItActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        login_back = findViewById(R.id.login_back);
+        login_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginActivity.this.finish();
             }
         });
 

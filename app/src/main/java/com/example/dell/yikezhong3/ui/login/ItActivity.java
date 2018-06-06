@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class ItActivity extends BaseActivity<LoginPresenter> implements LoginCon
     private SimpleDraweeView draweeView;
     private EditText edit_zhanghao;
     private EditText edit_mima;
+    private ImageView it_back;
 
     @Override
     public int getContentLayout() {
@@ -64,6 +66,8 @@ public class ItActivity extends BaseActivity<LoginPresenter> implements LoginCon
 
         regin = findViewById(R.id.regin_text);
         regin.setOnClickListener(this);
+        it_back = findViewById(R.id.it_back);
+        it_back.setOnClickListener(this);
     }
 
 
@@ -88,6 +92,10 @@ public class ItActivity extends BaseActivity<LoginPresenter> implements LoginCon
             case R.id.regin_text:
                 Intent intent = new Intent(ItActivity.this,ReginActivity.class);
                 startActivity(intent);
+                finish();
+                break;
+            case R.id.it_back:
+                ItActivity.this.finish();
                 break;
         }
     }

@@ -7,11 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.base.BaseActivity;
+import com.example.dell.yikezhong3.bean.RegisterBean;
+import com.example.dell.yikezhong3.component.DaggerHttpComponent;
+import com.example.dell.yikezhong3.moudle.HttpMoudle;
 import com.example.dell.yikezhong3.ui.login.ItActivity;
 import com.example.dell.yikezhong3.ui.regin.contract.RegisterContract;
 import com.example.dell.yikezhong3.ui.regin.presenter.RegisterPresenter;
@@ -24,6 +28,7 @@ public class ReginActivity extends BaseActivity<RegisterPresenter> implements Re
     private EditText edit_mobile;
     private EditText edit_pass;
     private SimpleDraweeView draweeView;
+    private ImageView regin_back;
 
 
     @Override
@@ -51,6 +56,8 @@ public class ReginActivity extends BaseActivity<RegisterPresenter> implements Re
         edit_mobile = findViewById(R.id.edit_mouble);
         edit_pass = findViewById(R.id.edit_pass);
 
+        regin_back = findViewById(R.id.regin_back);
+        regin_back.setOnClickListener(this);
     }
 
     @Override
@@ -64,9 +71,11 @@ public class ReginActivity extends BaseActivity<RegisterPresenter> implements Re
                 String mobile = edit_mobile.getText().toString();
                 String password = edit_pass.getText().toString();
                 mPresenter.register(mobile, password);
-
+                break;
+            case R.id.regin_back:
                 Intent intent1 = new Intent(ReginActivity.this,ItActivity.class);
                 startActivity(intent1);
+                finish();
                 break;
         }
 
@@ -76,11 +85,17 @@ public class ReginActivity extends BaseActivity<RegisterPresenter> implements Re
 
     @Override
     public void inject() {
-
+        DaggerHttpComponent.builder()
+                .httpMoudle(new HttpMoudle())
+                .build()
+                .inject(this);
     }
 
+
     @Override
-    public void registerSuccess() {
-        Toast.makeText(ReginActivity.this, "注册回调了", Toast.LENGTH_SHORT).show();
+    public void registerSuccess(RegisterBean registerBean) {
+        Intent intent = new Intent(ReginActivity.this,ItActivity.class);
+        startActivity(intent);
+        ReginActivity.this.finish();
     }
 }
