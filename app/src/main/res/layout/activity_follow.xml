@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="100dp"
-            android:text="我的收藏"
+            android:text="我的关注"
             android:layout_centerInParent="true"
             android:textColor="#ffffff"
             android:textSize="20dp" />

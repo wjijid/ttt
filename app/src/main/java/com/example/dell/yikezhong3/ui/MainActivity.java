@@ -23,7 +23,7 @@ import android.widget.Toast;
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.activity.ChuangzuoActivity;
 import com.example.dell.yikezhong3.activity.LoginActivity;
-import com.example.dell.yikezhong3.activity.MyShouCangActivity;
+import com.example.dell.yikezhong3.ui.collect.MyShouCangActivity;
 import com.example.dell.yikezhong3.activity.MySouActivity;
 import com.example.dell.yikezhong3.activity.MyTongZhiActivity;
 import com.example.dell.yikezhong3.ui.duanzi.DuanziFragment;

@@ -6,6 +6,8 @@ import com.example.dell.yikezhong3.net.AdApiService;
 import com.example.dell.yikezhong3.net.Api;
 import com.example.dell.yikezhong3.net.AttentionApi;
 import com.example.dell.yikezhong3.net.AttentionApiService;
+import com.example.dell.yikezhong3.net.CollectApi;
+import com.example.dell.yikezhong3.net.CollectApiService;
 import com.example.dell.yikezhong3.net.FollowApi;
 import com.example.dell.yikezhong3.net.FollowApiService;
 import com.example.dell.yikezhong3.net.JokesApi;
@@ -118,4 +120,22 @@ public class HttpMoudle {
 
         return  AttentionApi.getAttentionApi(attentionApiService);
     }
+
+    //收藏
+    @Provides
+    CollectApi provideCollectApi(OkHttpClient.Builder builder){
+        builder.addInterceptor(new MyInterceptor());
+        Retrofit  retrofit=new Retrofit.Builder()
+                .baseUrl(Api.URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+
+        CollectApiService collectApiService=retrofit.create(CollectApiService.class);
+
+        return  CollectApi.getCollectApi(collectApiService);
+    }
+
+
 }
