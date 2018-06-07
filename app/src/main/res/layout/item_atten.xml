@@ -41,9 +41,15 @@
                 android:text="2017-06-21 14:35"
                 />
 
+
         </LinearLayout>
 
-
+        <com.example.dell.yikezhong3.utlis.CustomerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"></com.example.dell.yikezhong3.utlis.CustomerView>
 
 
 

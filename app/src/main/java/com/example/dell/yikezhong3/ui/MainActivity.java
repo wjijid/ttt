@@ -30,6 +30,7 @@ import com.example.dell.yikezhong3.ui.duanzi.DuanziFragment;
 import com.example.dell.yikezhong3.ui.follow.FollowActivity;
 import com.example.dell.yikezhong3.ui.shipin.ShiPinFragment;
 import com.example.dell.yikezhong3.ui.tuijian.TuijianFragment;
+import com.example.dell.yikezhong3.utlis.SharedPreferencesUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 
@@ -44,6 +45,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView person;
     private View headerView;
     private ImageView imageView;
+    private TextView person_name;
+    private String name;
+    private String iconurl;
+    private String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +56,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
+
+
+
+
         initView();
 
         setListener();
         //获取头布局
         headerView = navigationView.getHeaderView(0);
-        menu.setOnClickListener(this);
         person = headerView.findViewById(R.id.person);
+        person_name = headerView.findViewById(R.id.person_name);
+
+        menu.setOnClickListener(this);
+
+        person_name.setText(name);
         person.setOnClickListener(this);
         person.setImageURI((new Uri.Builder()).scheme("res").path(String.valueOf(R.drawable.touxiang))
                 .build());
+        name = (String) SharedPreferencesUtils.getParam(this, "name", "");
+        iconurl = (String) SharedPreferencesUtils.getParam(this, "iconurl", "");
+        uid = (String) SharedPreferencesUtils.getParam(this,"uid","");
+        if("-1".equals(uid)){
+
+        }else{
+
+                person_name.setText(name);
+                person.setImageURI(Uri.parse(iconurl));
+
+
+        }
+
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
