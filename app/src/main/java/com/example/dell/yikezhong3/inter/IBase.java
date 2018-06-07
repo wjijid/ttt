@@ -8,4 +8,5 @@ public interface IBase {
     void inject();
 
     void initView(View view);
+
 }

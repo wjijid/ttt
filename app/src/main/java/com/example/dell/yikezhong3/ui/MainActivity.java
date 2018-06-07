@@ -2,6 +2,7 @@ package com.example.dell.yikezhong3.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,9 +21,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dell.yikezhong3.R;
+import com.example.dell.yikezhong3.activity.ChuangzuoActivity;
 import com.example.dell.yikezhong3.activity.LoginActivity;
 import com.example.dell.yikezhong3.ui.duanzi.DuanziFragment;
 import com.example.dell.yikezhong3.ui.follow.FollowActivity;
+import com.example.dell.yikezhong3.ui.shipin.ShiPinFragment;
 import com.example.dell.yikezhong3.ui.tuijian.TuijianFragment;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SimpleDraweeView menu;
     private ImageView person;
     private View headerView;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menu.setOnClickListener(this);
         person = headerView.findViewById(R.id.person);
         person.setOnClickListener(this);
+        person.setImageURI((new Uri.Builder()).scheme("res").path(String.valueOf(R.drawable.touxiang))
+                .build());
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -80,18 +86,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case R.id.btn_02:
                         manager.beginTransaction().replace(R.id.frame,new DuanziFragment()).commit();
                         break;
+                    case R.id.btn_03:
+                        manager.beginTransaction().replace(R.id.frame,new ShiPinFragment()).commit();
+                        break;
                 }
             }
         });
     }
 
     private void initView() {
+        //创建simpleDraweeView对象
+        SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.images);
+        draweeView.setImageURI((new Uri.Builder()).scheme("res").path(String.valueOf(R.drawable.touxiang))
+                .build());
+
+
 
         frameLayout = findViewById(R.id.frame);
         radio = findViewById(R.id.group);
         drawerLayout = findViewById(R.id.draw);
         navigationView =findViewById(R.id.nav);
         menu = findViewById(R.id.images);
+        imageView = findViewById(R.id.toolbar_image);
+        imageView.setOnClickListener(this);
     }
 
     @Override
@@ -107,6 +124,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.person:
                 Intent intent = new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.toolbar_image:
+                Intent intent1 = new Intent(MainActivity.this, ChuangzuoActivity.class);
+                startActivity(intent1);
                 break;
 
         }
