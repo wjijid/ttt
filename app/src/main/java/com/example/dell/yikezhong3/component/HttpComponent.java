@@ -16,4 +16,5 @@ public interface HttpComponent {
     void inject(ReMenFragment reMenFragment);
     void inject(ItActivity itActivity);
     void inject(ReginActivity reginActivity);
+    void inject(GuanZhuFragment guanZhuFragment) ;
 }

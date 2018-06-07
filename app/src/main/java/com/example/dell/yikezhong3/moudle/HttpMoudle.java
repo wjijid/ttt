@@ -1,8 +1,11 @@
 package com.example.dell.yikezhong3.moudle;
 
+import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.net.AdApi;
 import com.example.dell.yikezhong3.net.AdApiService;
 import com.example.dell.yikezhong3.net.Api;
+import com.example.dell.yikezhong3.net.AttentionApi;
+import com.example.dell.yikezhong3.net.AttentionApiService;
 import com.example.dell.yikezhong3.net.FollowApi;
 import com.example.dell.yikezhong3.net.FollowApiService;
 import com.example.dell.yikezhong3.net.JokesApi;
@@ -45,6 +48,7 @@ public class HttpMoudle {
         return JokesApi.getJokesApi(jokesApiService);
     }
 
+    //推荐---->热门
     @Provides
     AdApi provideAdApi(OkHttpClient.Builder builder) {
         builder.addInterceptor(new MyInterceptor());
@@ -96,5 +100,22 @@ public class HttpMoudle {
                 .build();
         FollowApiService followApiService = retrofit.create(FollowApiService.class);
         return FollowApi.getFollowApi(followApiService);
+    }
+
+    //推荐---->关注
+
+    @Provides
+    AttentionApi provideAttentionApi(OkHttpClient.Builder builder){
+        builder.addInterceptor(new MyInterceptor());
+        Retrofit  retrofit=new Retrofit.Builder()
+                .baseUrl(Api.URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+
+        AttentionApiService  attentionApiService=retrofit.create(AttentionApiService.class);
+
+        return  AttentionApi.getAttentionApi(attentionApiService);
     }
 }
