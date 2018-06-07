@@ -23,6 +23,9 @@ import android.widget.Toast;
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.activity.ChuangzuoActivity;
 import com.example.dell.yikezhong3.activity.LoginActivity;
+import com.example.dell.yikezhong3.activity.MyShouCangActivity;
+import com.example.dell.yikezhong3.activity.MySouActivity;
+import com.example.dell.yikezhong3.activity.MyTongZhiActivity;
 import com.example.dell.yikezhong3.ui.duanzi.DuanziFragment;
 import com.example.dell.yikezhong3.ui.follow.FollowActivity;
 import com.example.dell.yikezhong3.ui.shipin.ShiPinFragment;
@@ -66,6 +69,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (item.getItemId()==R.id.wallet){
                     Intent intent1 = new Intent(MainActivity.this, FollowActivity.class);
                     startActivity(intent1);
+                }else if(item.getItemId() == R.id.photo){
+                    Intent intent2 = new Intent(MainActivity.this, MyShouCangActivity.class);
+                    startActivity(intent2);
+                }else if(item.getItemId() == R.id.dress){
+                    Intent intent3 = new Intent(MainActivity.this, MySouActivity.class);
+                    startActivity(intent3);
+                }else{
+                    Intent intent4 = new Intent(MainActivity.this, MyTongZhiActivity.class);
+                    startActivity(intent4);
                 }
                 drawerLayout.closeDrawer(navigationView);
                 return true;
