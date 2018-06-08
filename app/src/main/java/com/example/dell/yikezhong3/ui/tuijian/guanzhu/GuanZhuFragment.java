@@ -1,5 +1,6 @@
 package com.example.dell.yikezhong3.ui.tuijian.guanzhu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,6 +17,7 @@ import com.example.dell.yikezhong3.base.BaseFragment;
 import com.example.dell.yikezhong3.bean.AdBean;
 import com.example.dell.yikezhong3.bean.AttentionBean;
 import com.example.dell.yikezhong3.component.DaggerHttpComponent;
+import com.example.dell.yikezhong3.inter.OnItemClickListener;
 import com.example.dell.yikezhong3.moudle.HttpMoudle;
 import com.example.dell.yikezhong3.ui.tuijian.guanzhu.adapter.AttentionAdapter;
 import com.example.dell.yikezhong3.ui.tuijian.guanzhu.contract.AttentionContract;
@@ -23,6 +25,7 @@ import com.example.dell.yikezhong3.ui.tuijian.guanzhu.presenter.AttentionPresent
 import com.example.dell.yikezhong3.ui.tuijian.remen.adapter.ReMenAdapter;
 import com.example.dell.yikezhong3.ui.tuijian.remen.contract.RemenContract;
 import com.example.dell.yikezhong3.ui.tuijian.remen.presenter.RemenPresenter;
+import com.example.dell.yikezhong3.ui.xiangqing.XiangQingActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,6 +84,18 @@ public class GuanZhuFragment  extends BaseFragment<AttentionPresenter> implement
             adapter.addData(attentionBean.getData());
 
         }
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(getActivity(), XiangQingActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongItemClick(int position) {
+
+            }
+        });
     }
 
 

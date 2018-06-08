@@ -8,6 +8,7 @@ import com.example.dell.yikezhong3.ui.tuijian.guanzhu.GuanZhuFragment;
 import com.example.dell.yikezhong3.ui.tuijian.remen.ReMenFragment;
 import com.example.dell.yikezhong3.ui.login.ItActivity;
 import com.example.dell.yikezhong3.ui.regin.ReginActivity;
+import com.example.dell.yikezhong3.ui.xiangqing.XiangQingActivity;
 
 import dagger.Component;
 
@@ -21,4 +22,5 @@ public interface HttpComponent {
     void inject(GuanZhuFragment guanZhuFragment) ;
     void inject(FollowActivity followActivity);
     void inject(MyShouCangActivity shouCangActivity);
+    void inject(XiangQingActivity xiangQingActivity);
 }

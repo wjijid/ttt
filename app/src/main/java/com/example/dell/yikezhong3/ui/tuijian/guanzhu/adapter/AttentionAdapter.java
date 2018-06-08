@@ -5,12 +5,14 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.bean.AdBean;
 import com.example.dell.yikezhong3.bean.AttentionBean;
+import com.example.dell.yikezhong3.inter.OnItemClickListener;
 import com.example.dell.yikezhong3.ui.tuijian.remen.adapter.ReMenAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -24,10 +26,15 @@ public class AttentionAdapter extends RecyclerView.Adapter<AttentionAdapter.Atte
 
     private Context context;
     private List<AttentionBean.DataBean>  list;
+    private OnItemClickListener onItemClickListener;
 
     public AttentionAdapter(Context context, List<AttentionBean.DataBean> list) {
         this.context = context;
         this.list = list;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 
     public void  addData(List<AttentionBean.DataBean> data){
@@ -48,7 +55,7 @@ public class AttentionAdapter extends RecyclerView.Adapter<AttentionAdapter.Atte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AttentionViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AttentionViewHolder holder, final int position) {
 
         holder.rc_img.setImageURI(list.get(position).getIcon());
         holder.rc_name.setText(list.get(position).getUsername());
@@ -61,6 +68,15 @@ public class AttentionAdapter extends RecyclerView.Adapter<AttentionAdapter.Atte
         holder.videoView.widthRatio = 4;//播放比例
         holder.videoView.heightRatio = 3;
         holder.videoView.startVideo();
+        //给条目设置点击事件
+        holder.ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(position);
+                }
+            }
+        });
     }
 
     @Override
@@ -73,6 +89,7 @@ public class AttentionAdapter extends RecyclerView.Adapter<AttentionAdapter.Atte
         private final SimpleDraweeView rc_img;
         private final TextView rc_name,rc_time;
         private final JCVideoPlayerStandard videoView;
+        private final LinearLayout ll;
         public AttentionViewHolder(View itemView) {
             super(itemView);
 
@@ -80,6 +97,7 @@ public class AttentionAdapter extends RecyclerView.Adapter<AttentionAdapter.Atte
             rc_name = itemView.findViewById(R.id.rc_name);
             rc_time = itemView.findViewById(R.id.rc_time);
             videoView = itemView.findViewById(R.id.video);
+            ll = itemView.findViewById(R.id.ll);
         }
     }
 }
