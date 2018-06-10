@@ -1,5 +1,6 @@
 package com.example.dell.yikezhong3.ui.tuijian.remen;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,10 +17,12 @@ import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.base.BaseFragment;
 import com.example.dell.yikezhong3.bean.AdBean;
 import com.example.dell.yikezhong3.component.DaggerHttpComponent;
+import com.example.dell.yikezhong3.inter.OnItemClickListener;
 import com.example.dell.yikezhong3.moudle.HttpMoudle;
 import com.example.dell.yikezhong3.ui.tuijian.remen.adapter.ReMenAdapter;
 import com.example.dell.yikezhong3.ui.tuijian.remen.contract.RemenContract;
 import com.example.dell.yikezhong3.ui.tuijian.remen.presenter.RemenPresenter;
+import com.example.dell.yikezhong3.ui.xiangqing.XiangQingActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -98,6 +101,19 @@ public class ReMenFragment extends BaseFragment<RemenPresenter> implements Remen
         if (adapter != null){
             adapter.addData(adBean.getData());
         }
+
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(getActivity(), XiangQingActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongItemClick(int position) {
+
+            }
+        });
 
 
     }

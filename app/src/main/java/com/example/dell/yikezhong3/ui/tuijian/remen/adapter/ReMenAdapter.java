@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -26,10 +27,15 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.RecommendViewHolder> {
     private Context context;
     private List<AdBean.DataBean> list;
+    private OnItemClickListener onItemClickListener;
 
     public ReMenAdapter(Context context, List<AdBean.DataBean> list) {
         this.context = context;
         this.list = list;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 
     public void addData(List<AdBean.DataBean> data) {
@@ -49,7 +55,7 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.RecommendVie
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final RecommendViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final RecommendViewHolder holder, final int position) {
         holder.rc_img.setImageURI(list.get(position).getUser().getIcon());
         holder.rc_name.setText(list.get(position).getUser().getNickname());
         holder.rc_time.setText(list.get(position).getCreateTime());
@@ -61,6 +67,15 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.RecommendVie
         holder.videoView.widthRatio = 4;//播放比例
         holder.videoView.heightRatio = 3;
         holder.videoView.startVideo();
+        //给条目设置点击事件
+        holder.ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(position);
+                }
+            }
+        });
     }
 
 /*    @Override
@@ -90,6 +105,7 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.RecommendVie
         private final SimpleDraweeView rc_img;
         private final TextView rc_name,rc_time;
         private final JCVideoPlayerStandard videoView;
+        private final LinearLayout ll;
         public RecommendViewHolder(View itemView) {
             super(itemView);
 
@@ -97,6 +113,7 @@ public class ReMenAdapter extends RecyclerView.Adapter<ReMenAdapter.RecommendVie
             rc_name = itemView.findViewById(R.id.rc_name);
             rc_time = itemView.findViewById(R.id.rc_time);
             videoView = itemView.findViewById(R.id.video);
+            ll = itemView.findViewById(R.id.ll);
         }
     }
 }

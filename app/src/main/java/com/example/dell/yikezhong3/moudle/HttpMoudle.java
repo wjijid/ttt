@@ -10,6 +10,8 @@ import com.example.dell.yikezhong3.net.CollectApi;
 import com.example.dell.yikezhong3.net.CollectApiService;
 import com.example.dell.yikezhong3.net.FollowApi;
 import com.example.dell.yikezhong3.net.FollowApiService;
+import com.example.dell.yikezhong3.net.GuanzhuApi;
+import com.example.dell.yikezhong3.net.GuanzhuApiService;
 import com.example.dell.yikezhong3.net.JokesApi;
 import com.example.dell.yikezhong3.net.JokesApiService;
 import com.example.dell.yikezhong3.net.LoginApi;
@@ -135,6 +137,20 @@ public class HttpMoudle {
         CollectApiService collectApiService=retrofit.create(CollectApiService.class);
 
         return  CollectApi.getCollectApi(collectApiService);
+    }
+
+    //详情
+    @Provides
+    GuanzhuApi provideGuanzhuApi(OkHttpClient.Builder builder){
+        builder.addInterceptor(new MyInterceptor());
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        GuanzhuApiService guanzhuApiService = retrofit.create(GuanzhuApiService.class);
+        return GuanzhuApi.guanzhuApi(guanzhuApiService);
     }
 
 
