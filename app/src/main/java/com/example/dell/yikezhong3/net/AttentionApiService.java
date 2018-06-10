@@ -14,8 +14,10 @@ public interface AttentionApiService {
      *https://www.zhaoapi.cn/quarter/follow
      *https://www.zhaoapi.cn/quarter/getVideos?source=android&appVersion=1
      *https://www.zhaoapi.cn/user/login?mobile=17600366571&password=123456
+     *       DEEDFF540856EC880DC7EB2F8C16C7E5
      *       DEEDFF540856EC880DC7EB2F8C16C7E5   14445
      *https://www.zhaoapi.cn/user/login?mobile=15535912393&password=123456
+     *           442A977AF5C64DF404F761900020CE70
      *
      *      1026
      * @return

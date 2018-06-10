@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }else if(item.getItemId() == R.id.photo){
                     Intent intent2 = new Intent(MainActivity.this, MyShouCangActivity.class);
                     startActivity(intent2);
+                    finish();
                 }else if(item.getItemId() == R.id.dress){
                     Intent intent3 = new Intent(MainActivity.this, MySouActivity.class);
                     startActivity(intent3);
