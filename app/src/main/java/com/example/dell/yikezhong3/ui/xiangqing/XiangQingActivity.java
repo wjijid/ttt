@@ -52,7 +52,7 @@ public class XiangQingActivity extends BaseActivity<CollectPresenter> implements
     }
 
     private void initData() {
-        mPresenter.getCollect("1026","442A977AF5C64DF404F761900020CE70");
+        mPresenter.getCollect("14445","DEEDFF540856EC880DC7EB2F8C16C7E5");
     }
 
     @Override
