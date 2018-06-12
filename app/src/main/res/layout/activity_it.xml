@@ -69,6 +69,7 @@
         android:text="忘记密码" />
 
     <TextView
+        android:id="@+id/youke"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

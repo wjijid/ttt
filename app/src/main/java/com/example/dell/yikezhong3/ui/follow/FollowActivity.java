@@ -1,5 +1,6 @@
 package com.example.dell.yikezhong3.ui.follow;
 
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.dell.yikezhong3.R;
+import com.example.dell.yikezhong3.activity.RMGZActivity;
 import com.example.dell.yikezhong3.base.BaseActivity;
 import com.example.dell.yikezhong3.bean.AttentionBean;
 import com.example.dell.yikezhong3.bean.FllowBean;
@@ -32,6 +34,7 @@ public class FollowActivity extends BaseActivity<AttentionPresenter> implements 
     private RecyclerView  recyclerView;
     private FollowAdapter adapter;
     private TextView foll_text;
+    private TextView remenguanzhu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,14 @@ public class FollowActivity extends BaseActivity<AttentionPresenter> implements 
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         adapter = new FollowAdapter(this,list);
         recyclerView.setAdapter(adapter);
+        remenguanzhu = findViewById(R.id.remenguanzhu);
+        remenguanzhu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FollowActivity.this, RMGZActivity.class);
+                startActivity(intent);
+            }
+        });
 
         initData();
     }

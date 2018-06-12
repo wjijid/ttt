@@ -28,6 +28,7 @@ public class ItActivity extends BaseActivity<LoginPresenter> implements LoginCon
     private EditText edit_zhanghao;
     private EditText edit_mima;
     private ImageView it_back;
+    private TextView youke;
 
     @Override
     public int getContentLayout() {
@@ -68,6 +69,8 @@ public class ItActivity extends BaseActivity<LoginPresenter> implements LoginCon
         regin.setOnClickListener(this);
         it_back = findViewById(R.id.it_back);
         it_back.setOnClickListener(this);
+        youke = findViewById(R.id.youke);
+        youke.setOnClickListener(this);
     }
 
 
@@ -96,6 +99,11 @@ public class ItActivity extends BaseActivity<LoginPresenter> implements LoginCon
                 break;
             case R.id.it_back:
                 ItActivity.this.finish();
+                break;
+            case R.id.youke:
+                Intent intent1 = new Intent(ItActivity.this,MainActivity.class);
+                startActivity(intent1);
+                finish();
                 break;
         }
     }
