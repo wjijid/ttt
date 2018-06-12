@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     xmlns:face="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
+    android:id="@+id/ll"
     android:layout_height="match_parent">
 
 

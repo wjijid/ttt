@@ -44,6 +44,13 @@ public class FollowActivity extends BaseActivity<AttentionPresenter> implements 
     private void initview() {
 
 
+        foll_text=findViewById(R.id.foll_text);
+        foll_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         recyclerView=findViewById(R.id.fmRv);
         List<AttentionBean.DataBean> list = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(this);

@@ -1,11 +1,13 @@
 package com.example.dell.yikezhong3.ui.collect;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.dell.yikezhong3.R;
@@ -15,6 +17,7 @@ import com.example.dell.yikezhong3.bean.CollectionBean;
 import com.example.dell.yikezhong3.component.DaggerHttpComponent;
 import com.example.dell.yikezhong3.inter.OnItemClickListener;
 import com.example.dell.yikezhong3.moudle.HttpMoudle;
+import com.example.dell.yikezhong3.ui.MainActivity;
 import com.example.dell.yikezhong3.ui.collect.adapter.CollectAdapter;
 import com.example.dell.yikezhong3.ui.collect.contract.CollectContract;
 import com.example.dell.yikezhong3.ui.collect.presenter.CollectPresenter;
@@ -22,6 +25,7 @@ import com.example.dell.yikezhong3.ui.follow.adapter.FollowAdapter;
 import com.example.dell.yikezhong3.ui.tuijian.guanzhu.contract.AttentionContract;
 import com.example.dell.yikezhong3.ui.tuijian.guanzhu.presenter.AttentionPresenter;
 import com.example.dell.yikezhong3.ui.xiangqing.XiangQingActivity;
+import com.umeng.commonsdk.debug.I;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +47,17 @@ public class MyShouCangActivity extends BaseActivity<CollectPresenter> implement
     private void initview() {
 
 
+        foll_text=findViewById(R.id.foll_text);
+        foll_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent  intent =new Intent(MyShouCangActivity.this,MainActivity.class);
+
+                startActivity(intent);
+            }
+
+
+        });
         recyclerView=findViewById(R.id.recy_collect);
         List<CollectionBean.DataBean> list = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(this);
