@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.fragment.TabFragment;
@@ -24,6 +26,7 @@ public class RMGZActivity extends AppCompatActivity {
     private ViewPager viewPager;
     ArrayList<Fragment> fragmentList = new ArrayList<Fragment>();
     ArrayList<String> titleList = new ArrayList<String>();
+    private TextView qv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,13 @@ public class RMGZActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tl_tab);
         viewPager = (ViewPager) findViewById(R.id.viewpage);
+        qv = findViewById(R.id.qx);
+        qv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RMGZActivity.this.finish();
+            }
+        });
         initData();//添加数据
         //fragment管理器
         MyAdapter myAdapter = new MyAdapter(getSupportFragmentManager());

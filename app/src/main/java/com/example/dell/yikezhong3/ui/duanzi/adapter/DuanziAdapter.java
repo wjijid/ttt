@@ -50,7 +50,6 @@ public class DuanziAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         dViewHolder.image.setImageURI(user.getIcon());
         dViewHolder.t1.setText(dataBean.getContent());
         dViewHolder.t2.setText(dataBean.getCreateTime());
-        dViewHolder.t3.setText(user.getPraiseNum());
         //给条目设置点击事件
         dViewHolder.ll.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,14 +69,13 @@ public class DuanziAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     class DViewHolder extends RecyclerView.ViewHolder{
 
         private final SimpleDraweeView image;
-        private final TextView t1,t2,t3;
+        private final TextView t1,t2;
         private final LinearLayout ll;
         public DViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.sdv);
             t1 = itemView.findViewById(R.id.text1);
             t2 = itemView.findViewById(R.id.text2);
-            t3 = itemView.findViewById(R.id.text3);
             ll = itemView.findViewById(R.id.ll);
         }
     }

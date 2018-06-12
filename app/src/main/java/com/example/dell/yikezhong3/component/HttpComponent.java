@@ -1,5 +1,6 @@
 package com.example.dell.yikezhong3.component;
 
+import com.example.dell.yikezhong3.fragment.TabFragment3;
 import com.example.dell.yikezhong3.moudle.HttpMoudle;
 import com.example.dell.yikezhong3.ui.collect.MyShouCangActivity;
 import com.example.dell.yikezhong3.ui.duanzi.DuanziFragment;
@@ -25,4 +26,5 @@ public interface HttpComponent {
     void inject(MyShouCangActivity shouCangActivity);
     void inject (VFollowFragment vFollowFragment);
     void inject(XiangQingActivity xiangQingActivity);
+    void inject(TabFragment3 tabFragment3);
 }
