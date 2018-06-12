@@ -16,7 +16,9 @@ import com.example.dell.yikezhong3.base.BaseActivity;
 import com.example.dell.yikezhong3.bean.AttentionBean;
 import com.example.dell.yikezhong3.bean.FllowBean;
 import com.example.dell.yikezhong3.component.DaggerHttpComponent;
+import com.example.dell.yikezhong3.inter.OnItemClickListener;
 import com.example.dell.yikezhong3.moudle.HttpMoudle;
+import com.example.dell.yikezhong3.ui.collect.MyShouCangActivity;
 import com.example.dell.yikezhong3.ui.follow.adapter.FollowAdapter;
 import com.example.dell.yikezhong3.ui.follow.contract.FollowContract;
 import com.example.dell.yikezhong3.ui.follow.presenter.FollowPresenter;
@@ -25,6 +27,7 @@ import com.example.dell.yikezhong3.ui.regin.contract.RegisterContract;
 import com.example.dell.yikezhong3.ui.tuijian.guanzhu.adapter.AttentionAdapter;
 import com.example.dell.yikezhong3.ui.tuijian.guanzhu.contract.AttentionContract;
 import com.example.dell.yikezhong3.ui.tuijian.guanzhu.presenter.AttentionPresenter;
+import com.example.dell.yikezhong3.ui.xiangqing.XiangQingActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,5 +100,18 @@ public class FollowActivity extends BaseActivity<AttentionPresenter> implements 
             adapter.addData(attentionBean.getData());
 
         }
+
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(FollowActivity.this, XiangQingActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongItemClick(int position) {
+
+            }
+        });
     }
 }

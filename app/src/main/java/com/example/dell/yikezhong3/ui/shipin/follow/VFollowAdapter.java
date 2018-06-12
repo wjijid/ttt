@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.bean.AdBean;
 import com.example.dell.yikezhong3.bean.AttentionBean;
+import com.example.dell.yikezhong3.inter.OnItemClickListener;
 import com.example.dell.yikezhong3.ui.tuijian.guanzhu.adapter.AttentionAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -24,13 +25,19 @@ public class VFollowAdapter  extends RecyclerView.Adapter<VFollowAdapter.Attenti
     private Context context;
     private List<AdBean.DataBean> list;
     private List<Integer> heightList=new ArrayList<>();
+    private OnItemClickListener  onItemClickListener;
+
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 
     public VFollowAdapter(Context context, List<AdBean.DataBean> list) {
         this.context = context;
         this.list = list;
         heightList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            int height = new Random().nextInt(200) + 100;//[100,300)的随机数
+            int height = new Random().nextInt(500) + 100;//[100,300)的随机数
             heightList.add(height);
         }
     }
@@ -52,13 +59,22 @@ public class VFollowAdapter  extends RecyclerView.Adapter<VFollowAdapter.Attenti
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AttentionViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AttentionViewHolder holder, final int position) {
         holder.rc_img.setImageURI(list.get(position).getUser().getIcon());
         ViewGroup.LayoutParams params = holder.rc_img.getLayoutParams();
-        heightList.add(position,new Random().nextInt(200) + 100);
+        heightList.add(position,new Random().nextInt(350) + 100);
         params.height=heightList.get(position);
         holder.rc_img.setLayoutParams(params);
 
+        holder.rc_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(onItemClickListener!=null){
+                    onItemClickListener.onItemClick(position);
+
+                }
+            }
+        });
 
     }
 

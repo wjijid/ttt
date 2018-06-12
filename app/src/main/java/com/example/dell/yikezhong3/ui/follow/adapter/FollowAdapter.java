@@ -5,12 +5,14 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.bean.AttentionBean;
 import com.example.dell.yikezhong3.bean.FllowBean;
+import com.example.dell.yikezhong3.inter.OnItemClickListener;
 import com.example.dell.yikezhong3.ui.tuijian.guanzhu.adapter.AttentionAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -25,11 +27,16 @@ public class FollowAdapter extends RecyclerView.Adapter<FollowAdapter.AttentionV
     private Context context;
     private List<AttentionBean.DataBean>  list;
 
+    private OnItemClickListener  onItemClickListener;
     public FollowAdapter(Context context, List<AttentionBean.DataBean> list) {
         this.context = context;
         this.list = list;
     }
 
+
+    public void setOnItemClickListener (OnItemClickListener onItemClickListener){
+        this.onItemClickListener=onItemClickListener;
+    }
     public void  addData(List<AttentionBean.DataBean> data){
 
         if(this.list==null){
@@ -47,12 +54,20 @@ public class FollowAdapter extends RecyclerView.Adapter<FollowAdapter.AttentionV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AttentionViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AttentionViewHolder holder, final int position) {
 
         holder.rc_img.setImageURI(list.get(position).getIcon());
         holder.rc_name.setText(list.get(position).getUsername());
         holder.rc_time.setText(list.get(position).getCreatetime());
 
+        holder.ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(position);
+                }
+            }
+        });
 
     }
 
@@ -66,12 +81,14 @@ public class FollowAdapter extends RecyclerView.Adapter<FollowAdapter.AttentionV
 
         private final SimpleDraweeView rc_img;
         private final TextView rc_name,rc_time;
+        private LinearLayout ll;
         public AttentionViewHolder(View itemView) {
             super(itemView);
 
             rc_img = itemView.findViewById(R.id.rc_img);
             rc_name = itemView.findViewById(R.id.rc_name);
             rc_time = itemView.findViewById(R.id.rc_time);
+            ll=itemView.findViewById(R.id.ll);
         }
     }
 }
