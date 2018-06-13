@@ -6,6 +6,7 @@ import com.example.dell.yikezhong3.ui.collect.MyShouCangActivity;
 import com.example.dell.yikezhong3.ui.duanzi.DuanziFragment;
 import com.example.dell.yikezhong3.ui.follow.FollowActivity;
 import com.example.dell.yikezhong3.ui.shipin.follow.VFollowFragment;
+import com.example.dell.yikezhong3.ui.shipin.nearby.VNearbyFragment;
 import com.example.dell.yikezhong3.ui.tuijian.guanzhu.GuanZhuFragment;
 import com.example.dell.yikezhong3.ui.tuijian.remen.ReMenFragment;
 import com.example.dell.yikezhong3.ui.login.ItActivity;
@@ -27,4 +28,6 @@ public interface HttpComponent {
     void inject (VFollowFragment vFollowFragment);
     void inject(XiangQingActivity xiangQingActivity);
     void inject(TabFragment3 tabFragment3);
+    void inject(VNearbyFragment vNearbyFragment);
+
 }

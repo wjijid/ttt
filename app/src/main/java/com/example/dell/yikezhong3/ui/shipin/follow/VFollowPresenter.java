@@ -23,9 +23,6 @@ public class VFollowPresenter extends BasePresenter<VFollowContract.View> implem
     }
 
 
-
-
-
     @Override
     public void getAd(String token, String page) {
         adApi.getAd(token,page)
