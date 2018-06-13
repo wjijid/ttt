@@ -33,6 +33,7 @@
             android:src="@drawable/raw_1499933217"
             />
         <ImageView
+            android:id="@+id/xq_fenxiang"
             android:layout_width="20dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="25dp"

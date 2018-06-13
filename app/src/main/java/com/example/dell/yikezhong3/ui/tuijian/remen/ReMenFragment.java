@@ -1,17 +1,10 @@
 package com.example.dell.yikezhong3.ui.tuijian.remen;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.base.BaseFragment;
@@ -25,7 +18,6 @@ import com.example.dell.yikezhong3.ui.tuijian.remen.presenter.RemenPresenter;
 import com.example.dell.yikezhong3.ui.xiangqing.XiangQingActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
-import com.youth.banner.Transformer;
 
 
 import java.util.ArrayList;
@@ -54,7 +46,13 @@ public class ReMenFragment extends BaseFragment<RemenPresenter> implements Remen
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
     public void initView(View view) {
+
         banner=view.findViewById(R.id.banner);
         inbanner();
         List<Integer> li=new ArrayList<>();
@@ -79,6 +77,7 @@ public class ReMenFragment extends BaseFragment<RemenPresenter> implements Remen
         adapter = new ReMenAdapter(getActivity(),list);
         recv.setAdapter(adapter);
 
+
         initData();
     }
 
@@ -91,9 +90,13 @@ public class ReMenFragment extends BaseFragment<RemenPresenter> implements Remen
     }
     private void initData() {
         mPresenter.getAd("442A977AF5C64DF404F761900020CE70","10");
-
     }
 
+    @Override
+    public void dimissLoading() {
+
+
+    }
     @Override
     public void getAdSuccess(AdBean adBean) {
 
@@ -125,13 +128,7 @@ public class ReMenFragment extends BaseFragment<RemenPresenter> implements Remen
 
     }
 
-    @Override
-    public void showLoading() {
 
-    }
 
-    @Override
-    public void dimissLoading() {
 
-    }
 }

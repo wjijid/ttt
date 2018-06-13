@@ -17,6 +17,7 @@ import javax.inject.Inject;
 
 public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends Fragment implements IBase,
         BaseContract.BaseView {
+    private LoadingDialog dialog;
     @Inject
     protected T mPresenter;
 
@@ -50,6 +51,16 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
 
     @Override
     public void initView(View view) {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void dimissLoading() {
 
     }
 }
