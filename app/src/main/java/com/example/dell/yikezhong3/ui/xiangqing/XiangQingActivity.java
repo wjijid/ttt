@@ -8,7 +8,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,8 +36,9 @@ public class XiangQingActivity extends BaseActivity<CollectPresenter> implements
     private RecyclerView recyclerView;
     private CollectAdapter adapter;
     private TextView foll_text;
-    private Button btn;
+    private CheckBox btn;
     private ImageView dianzan;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +49,7 @@ public class XiangQingActivity extends BaseActivity<CollectPresenter> implements
     private void initview() {
         recyclerView=findViewById(R.id.xMrv);
         btn = findViewById(R.id.guanzhu);
-        dianzan = findViewById(R.id.dianzan);
+        //dianzan = findViewById(R.id.dianzan);
         //创建simpleDraweeView对象
         SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.simple);
         draweeView.setImageURI((new Uri.Builder()).scheme("res").path(String.valueOf(R.drawable.touxiang))
@@ -56,19 +60,8 @@ public class XiangQingActivity extends BaseActivity<CollectPresenter> implements
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         adapter = new CollectAdapter(this,list);
         recyclerView.setAdapter(adapter);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn.setText("已关注");
-                Toast.makeText(XiangQingActivity.this,"关注成功",Toast.LENGTH_SHORT).show();
-            }
-        });
-//        dianzan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+
+
 
         initData();
     }
