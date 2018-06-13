@@ -11,7 +11,7 @@ import com.example.dell.yikezhong3.inter.IBase;
 import javax.inject.Inject;
 
 public abstract class BaseActivity<T extends BaseContract.BasePresenter> extends AppCompatActivity implements IBase,BaseContract.BaseView{
-    private LoadingDialog dialog;
+
     @Inject
     protected T mPresenter;
     @Override
