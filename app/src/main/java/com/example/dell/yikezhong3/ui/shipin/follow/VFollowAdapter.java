@@ -62,8 +62,8 @@ public class VFollowAdapter  extends RecyclerView.Adapter<VFollowAdapter.Attenti
     public void onBindViewHolder(@NonNull AttentionViewHolder holder, final int position) {
         holder.rc_img.setImageURI(list.get(position).getUser().getIcon());
         ViewGroup.LayoutParams params = holder.rc_img.getLayoutParams();
-        heightList.add(position,new Random().nextInt(350) + 100);
-        params.height=heightList.get(position);
+       // heightList.add(position,new Random().nextInt(350) + 100);
+     //   params.height=heightList.get(position);
         holder.rc_img.setLayoutParams(params);
 
         holder.rc_img.setOnClickListener(new View.OnClickListener() {
