@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:face="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.gerenxq.SPXQActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/xq_back"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/raw_1500019926"/>
+        <ImageView
+            android:id="@+id/xq_xin"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/xq_back"
+            android:layout_marginLeft="25dp"
+            android:src="@drawable/raw_1499933216"/>
+        <ImageView
+            android:id="@+id/xq_xinlie"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/xq_xin"
+            android:layout_marginLeft="25dp"
+            android:src="@drawable/raw_1499933217"
+            />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@+id/xq_xinlie"
+            android:src="@drawable/raw_1499995160"/>
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/xq_image"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            face:roundAsCircle="true"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+        android:id="@+id/xq_video"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+    <TextView
+        android:id="@+id/xq_biaoti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="将军澳电视看了附近的萨"/>
+    <TextView
+        android:id="@+id/xq_bof"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:text="66666"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:background="#DEDEDE"
+        >
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26dp"
+            android:src="@drawable/raw_1500033586" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:text="拿起手机速来抢个沙发吧!~" />
+    </RelativeLayout>
+
+</LinearLayout>

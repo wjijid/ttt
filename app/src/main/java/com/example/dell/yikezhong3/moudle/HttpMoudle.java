@@ -10,6 +10,8 @@ import com.example.dell.yikezhong3.net.CollectApi;
 import com.example.dell.yikezhong3.net.CollectApiService;
 import com.example.dell.yikezhong3.net.FollowApi;
 import com.example.dell.yikezhong3.net.FollowApiService;
+import com.example.dell.yikezhong3.net.GeApi;
+import com.example.dell.yikezhong3.net.GeApiService;
 import com.example.dell.yikezhong3.net.GuanzhuApi;
 import com.example.dell.yikezhong3.net.GuanzhuApiService;
 import com.example.dell.yikezhong3.net.JokesApi;
@@ -151,6 +153,20 @@ public class HttpMoudle {
                 .build();
         GuanzhuApiService guanzhuApiService = retrofit.create(GuanzhuApiService.class);
         return GuanzhuApi.guanzhuApi(guanzhuApiService);
+    }
+
+    //某个用户的视频详情
+    @Provides
+    GeApi provideGeApi(OkHttpClient.Builder builder){
+        builder.addInterceptor(new MyInterceptor());
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        GeApiService geApiService = retrofit.create(GeApiService.class);
+        return GeApi.getGeApi(geApiService);
     }
 
 

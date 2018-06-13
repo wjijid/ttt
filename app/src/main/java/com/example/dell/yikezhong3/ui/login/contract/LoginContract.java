@@ -4,6 +4,8 @@ package com.example.dell.yikezhong3.ui.login.contract;
 import com.example.dell.yikezhong3.base.BaseContract;
 import com.example.dell.yikezhong3.bean.UserBean;
 
+import java.lang.ref.SoftReference;
+
 public interface LoginContract {
     interface View extends BaseContract.BaseView {
         void loginSuccess(UserBean userBean);
