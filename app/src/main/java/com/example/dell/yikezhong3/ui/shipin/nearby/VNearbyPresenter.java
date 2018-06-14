@@ -2,7 +2,9 @@ package com.example.dell.yikezhong3.ui.shipin.nearby;
 
 import com.example.dell.yikezhong3.base.BasePresenter;
 import com.example.dell.yikezhong3.bean.AdBean;
+import com.example.dell.yikezhong3.bean.JokesBean;
 import com.example.dell.yikezhong3.net.AdApi;
+import com.example.dell.yikezhong3.net.JokesApi;
 
 import javax.inject.Inject;
 
@@ -13,30 +15,33 @@ import io.reactivex.schedulers.Schedulers;
 
 public class VNearbyPresenter extends BasePresenter<VNearbyContract.View> implements  VNearbyContract.Presenter{
 
-    private AdApi adApi;
+    private JokesApi jokesApi;
 
     @Inject
-    public VNearbyPresenter(AdApi adApi) {
-        this.adApi = adApi;
+    public VNearbyPresenter(JokesApi jokesApi) {
+        this.jokesApi = jokesApi;
     }
 
+
+
+
+
+
     @Override
-    public void getAd(String token, String page) {
-        adApi.getAd(token,page)
+    public void getJokes(String page) {
+        jokesApi.getDuanzi(page)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Observer<AdBean>() {
+                .subscribe(new Observer<JokesBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(AdBean adBean) {
-                        if(mView!=null){
-                            mView.getAdSuccess(adBean);
-                        }
+                    public void onNext(JokesBean jokesBean) {
 
+                        mView.getJokeSuccess(jokesBean);
                     }
 
                     @Override
@@ -49,5 +54,6 @@ public class VNearbyPresenter extends BasePresenter<VNearbyContract.View> implem
 
                     }
                 });
+
     }
 }

@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.base.BaseFragment;
 import com.example.dell.yikezhong3.bean.AdBean;
+import com.example.dell.yikezhong3.bean.JokesBean;
 import com.example.dell.yikezhong3.component.DaggerHttpComponent;
 import com.example.dell.yikezhong3.inter.OnItemClickListener;
 import com.example.dell.yikezhong3.moudle.HttpMoudle;
@@ -53,7 +54,7 @@ public class VNearbyFragment extends BaseFragment<VNearbyPresenter> implements V
     public void initView(View view) {
         super.initView(view);
         recv=view.findViewById(R.id.recv);
-        List<AdBean.DataBean> list = new ArrayList<>();
+        List<JokesBean.DataBean> list = new ArrayList<>();
         recv.setLayoutManager(new
                 StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         recv.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
@@ -64,14 +65,17 @@ public class VNearbyFragment extends BaseFragment<VNearbyPresenter> implements V
     }
 
     private void initData() {
-        mPresenter.getAd("442A977AF5C64DF404F761900020CE70","10");
+        mPresenter.getJokes("23");
+
 
     }
 
+
+
     @Override
-    public void getAdSuccess(AdBean adBean) {
+    public void getJokeSuccess(JokesBean jokesBean) {
         if (adapter != null){
-            adapter.addData(adBean.getData());
+            adapter.addData(jokesBean.getData());
         }
 
         adapter.setOnItemClickListener(new OnItemClickListener() {

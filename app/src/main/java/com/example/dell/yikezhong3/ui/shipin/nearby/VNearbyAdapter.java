@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.bean.AdBean;
+import com.example.dell.yikezhong3.bean.JokesBean;
 import com.example.dell.yikezhong3.inter.OnItemClickListener;
 import com.example.dell.yikezhong3.ui.shipin.follow.VFollowAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -17,7 +18,7 @@ import java.util.List;
 
 public class VNearbyAdapter extends RecyclerView.Adapter<VNearbyAdapter.AttentionViewHolder>{
     private Context context;
-    private List<AdBean.DataBean> list;
+    private List<JokesBean.DataBean> list;
     private List<Integer> heightList=new ArrayList<>();
     private OnItemClickListener onItemClickListener;
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
@@ -25,12 +26,12 @@ public class VNearbyAdapter extends RecyclerView.Adapter<VNearbyAdapter.Attentio
     }
 
 
-    public VNearbyAdapter(Context context, List<AdBean.DataBean> list) {
+    public VNearbyAdapter(Context context, List<JokesBean.DataBean> list) {
         this.context = context;
         this.list = list;
     }
 
-    public void  addData(List<AdBean.DataBean> data){
+    public void  addData(List<JokesBean.DataBean> data){
 
         if(this.list==null){
             this.list = new ArrayList<>();
@@ -41,7 +42,7 @@ public class VNearbyAdapter extends RecyclerView.Adapter<VNearbyAdapter.Attentio
     @NonNull
     @Override
     public AttentionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(context, R.layout.nearfragment, null);
+        View view = View.inflate(context, R.layout.vfollow_item, null);
         return new VNearbyAdapter.AttentionViewHolder(view);
     }
 
