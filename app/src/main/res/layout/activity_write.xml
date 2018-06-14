@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,69 +13,61 @@
             android:id="@+id/write_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:text="取消"
-            android:textColor="#ffffff"
-            android:textSize="25dp" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:text="返回"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
             android:text="发布文章"
-            android:textColor="#ffffff"
-            android:textSize="25dp" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
 
         <TextView
-            android:id="@+id/write_fabu"
+            android:id="@+id/send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:text="发布"
-            android:textColor="#ffffff"
-            android:textSize="25dp" />
+            android:layout_marginRight="10dp"
+            android:text="发表"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white" />
 
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/etContent"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="说点什么吧..."
-        android:paddingTop="8dp"
-        android:background="@null"/>
-    <ImageView
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/raw_1500020546"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#E0E0E0"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:gravity="center_vertical"
-        >
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ta"/>
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/raw_1499943790" />
-    </RelativeLayout>
-    <View
-        android:id="@+id/line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#E0E0E0"/>
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:focusable="false"
+            android:gravity="top"
+            android:enabled="true"
+            android:hint="分享您的那点新鲜事儿..."
+            android:maxLines="5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <GridView
+                android:id="@+id/gridview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="4" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

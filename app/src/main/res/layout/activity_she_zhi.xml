@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.SheZhiActivity">
 
     <RelativeLayout
@@ -13,6 +14,7 @@
         >
 
         <TextView
+            android:id="@+id/shezhi_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
@@ -31,5 +33,20 @@
 
 
     </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+
+    <Button
+        android:id="@+id/tuichudenglu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ff00"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:text="退出登录"/>
 
 </LinearLayout>

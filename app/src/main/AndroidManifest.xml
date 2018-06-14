@@ -77,6 +77,7 @@
     <!-- 用于申请获取蓝牙信息进行室内定位 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".app.MyApp"
@@ -126,7 +127,8 @@
         <activity android:name=".ui.xiangqing.XiangQingActivity" />
         <activity android:name=".activity.RMGZActivity" />
         <activity android:name=".ui.gerenxq.SPXQActivity" />
-        <activity android:name=".activity.SheZhiActivity"></activity>
+        <activity android:name=".activity.SheZhiActivity" />
+        <activity android:name=".activity.FaBiaoActivity"></activity>
     </application>
 
 </manifest>
