@@ -44,6 +44,7 @@ public class ShiPinFragment extends Fragment {
                         break;
                     case R.id.rb2:
                        manager.beginTransaction().replace(R.id.fr,new VNearbyFragment()).commit();
+                       //manager.beginTransaction().replace(R.id.fr,new VNearbyFragment()).commit();
                         break;
                 }
             }

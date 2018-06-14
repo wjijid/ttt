@@ -1,6 +1,5 @@
 package com.example.dell.yikezhong3.ui.duanzi;
 
-import android.arch.lifecycle.ViewModelStoreOwner;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -43,6 +42,7 @@ public class DuanziFragment extends BaseFragment<DuanziPresenter> implements Dua
     public void initView(View view) {
         super.initView(view);
 
+
         mPresenter.getJokes(page+"");
         mRv = view.findViewById(R.id.mRv);
         mRv.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -59,6 +59,7 @@ public class DuanziFragment extends BaseFragment<DuanziPresenter> implements Dua
 
     @Override
     public void getJokeSuccess(JokesBean jokesBean) {
+
 
         List<JokesBean.DataBean> data = jokesBean.getData();
         DuanziAdapter duanziAdapter = new DuanziAdapter(getContext(),data);

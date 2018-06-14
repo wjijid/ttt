@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.example.dell.yikezhong3.R;
 import com.example.dell.yikezhong3.activity.ChuangzuoActivity;
 import com.example.dell.yikezhong3.activity.LoginActivity;
+import com.example.dell.yikezhong3.activity.SheZhiActivity;
 import com.example.dell.yikezhong3.ui.collect.MyShouCangActivity;
 import com.example.dell.yikezhong3.activity.MySouActivity;
 import com.example.dell.yikezhong3.activity.MyTongZhiActivity;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String name;
     private String iconurl;
     private String uid;
+    private ImageView shezhi;
+    private ImageView wodewenjian;
 
 
     @Override
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         person = headerView.findViewById(R.id.person);
         person_name = headerView.findViewById(R.id.person_name);
 
-        menu.setOnClickListener(this);
+
 
         person_name.setText(name);
         person.setOnClickListener(this);
@@ -146,6 +149,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menu = findViewById(R.id.images);
         imageView = findViewById(R.id.toolbar_image);
         imageView.setOnClickListener(this);
+        shezhi = findViewById(R.id.shezhi);
+        shezhi.setOnClickListener(this);
+        wodewenjian = findViewById(R.id.wodewenjian);
+        wodewenjian.setOnClickListener(this);
+        menu.setOnClickListener(this);
+
     }
 
     @Override
@@ -165,6 +174,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.toolbar_image:
                 Intent intent1 = new Intent(MainActivity.this, ChuangzuoActivity.class);
                 startActivity(intent1);
+                break;
+            case R.id.wodewenjian:
+                break;
+            case R.id.shezhi:
+                Intent intent2 = new Intent(MainActivity.this, SheZhiActivity.class);
+                startActivity(intent2);
                 break;
 
         }

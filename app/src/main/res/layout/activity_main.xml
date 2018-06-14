@@ -73,11 +73,13 @@
             android:layout_gravity="bottom">
 
             <ImageView
+                android:id="@+id/wodewenjian"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:src="@drawable/raw_1499947056"/>
             <ImageView
+                android:id="@+id/shezhi"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
