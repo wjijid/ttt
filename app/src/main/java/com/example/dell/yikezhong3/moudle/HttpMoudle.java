@@ -21,6 +21,8 @@ import com.example.dell.yikezhong3.net.LoginApiService;
 import com.example.dell.yikezhong3.net.MyInterceptor;
 import com.example.dell.yikezhong3.net.RegisterApi;
 import com.example.dell.yikezhong3.net.RegisterApiService;
+import com.example.dell.yikezhong3.net.SelectApi;
+import com.example.dell.yikezhong3.net.SelectApiService;
 
 import java.util.concurrent.TimeUnit;
 
@@ -170,4 +172,16 @@ public class HttpMoudle {
     }
 
 
+    @Provides
+    SelectApi provideSelectApi(OkHttpClient.Builder builder){
+        builder.addInterceptor(new MyInterceptor());
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
+                .build();
+        SelectApiService selectApiService = retrofit.create(SelectApiService.class);
+        return SelectApi.getSelectApi(selectApiService);
+    }
 }

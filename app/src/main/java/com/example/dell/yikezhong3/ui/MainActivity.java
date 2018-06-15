@@ -25,7 +25,7 @@ import com.example.dell.yikezhong3.activity.ChuangzuoActivity;
 import com.example.dell.yikezhong3.activity.LoginActivity;
 import com.example.dell.yikezhong3.activity.SheZhiActivity;
 import com.example.dell.yikezhong3.ui.collect.MyShouCangActivity;
-import com.example.dell.yikezhong3.activity.MySouActivity;
+import com.example.dell.yikezhong3.ui.select.MySouActivity;
 import com.example.dell.yikezhong3.activity.MyTongZhiActivity;
 import com.example.dell.yikezhong3.ui.duanzi.DuanziFragment;
 import com.example.dell.yikezhong3.ui.file.MyFileActivity;
