@@ -54,7 +54,7 @@ public class FollowActivity extends BaseActivity<AttentionPresenter> implements 
         foll_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+               FollowActivity.this.finish();
             }
         });
         recyclerView=findViewById(R.id.fmRv);

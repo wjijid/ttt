@@ -51,9 +51,7 @@ public class MyShouCangActivity extends BaseActivity<CollectPresenter> implement
         foll_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent  intent =new Intent(MyShouCangActivity.this,MainActivity.class);
-
-                startActivity(intent);
+                MyShouCangActivity.this.finish();
             }
 
 

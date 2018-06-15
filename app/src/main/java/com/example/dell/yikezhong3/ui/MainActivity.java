@@ -28,6 +28,7 @@ import com.example.dell.yikezhong3.ui.collect.MyShouCangActivity;
 import com.example.dell.yikezhong3.activity.MySouActivity;
 import com.example.dell.yikezhong3.activity.MyTongZhiActivity;
 import com.example.dell.yikezhong3.ui.duanzi.DuanziFragment;
+import com.example.dell.yikezhong3.ui.file.MyFileActivity;
 import com.example.dell.yikezhong3.ui.follow.FollowActivity;
 import com.example.dell.yikezhong3.ui.shipin.ShiPinFragment;
 import com.example.dell.yikezhong3.ui.tuijian.TuijianFragment;
@@ -176,7 +177,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent1);
                 break;
             case R.id.wodewenjian:
+                Intent intent3=new  Intent(MainActivity.this, MyFileActivity.class);
 
+                startActivity(intent3);
                 break;
             case R.id.shezhi:
                 Intent intent2 = new Intent(MainActivity.this, SheZhiActivity.class);

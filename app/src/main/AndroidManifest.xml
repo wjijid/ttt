@@ -128,7 +128,7 @@
         <activity android:name=".activity.RMGZActivity" />
         <activity android:name=".ui.gerenxq.SPXQActivity" />
         <activity android:name=".activity.SheZhiActivity" />
-        <activity android:name=".activity.FaBiaoActivity"></activity>
+        <activity android:name=".ui.file.MyFileActivity"></activity>
     </application>
 
 </manifest>
